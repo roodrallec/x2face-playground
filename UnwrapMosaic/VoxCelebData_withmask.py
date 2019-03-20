@@ -27,7 +27,7 @@ class VoxCeleb(data.Dataset):
                 # Update the npz files with the name that you downloaded it to from the website
                 file_name = 'landmarks_samevideoimg_%d25thframe_5imgs_%d.npz' % (dataset, num_views)
                 file_path = os.path.join(os.environ['DATA_DIR'], file_name)
-                assert(os.path.exists(file_path))
+                assert(os.path.exists(file_path), 'File does not exist' + file_path)
 
                 files = np.load(file_path)
                 self.image_names = files['image_names']
